@@ -1,7 +1,7 @@
 async function calculateLostRevenue() {
     const postalCode = document.getElementById('postalCode').value;
     const trade = document.getElementById('trade').value;
-    const dataUrl = 'YOUR_JSON_URL_HERE'; // Replace with your actual URL
+    const dataUrl = 'https://raw.githubusercontent.com/chrisoreilly11/australian-trades-data/main/australian_trades_postcodes.json'; // Replace with your actual URL
 
     try {
         const response = await fetch(dataUrl);
