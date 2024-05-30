@@ -1,0 +1,97 @@
+import json
+
+# Define the trades and their corresponding average revenue impacts per region
+regions = {
+    "Sydney": {"postcodes": range(2000, 3000), "electricians": 160000, "plumbers": 210000, "HVAC": 190000, 
+               "carpenters": 170000, "roofers": 180000, "painters": 140000, "landscapers": 130000, "masons": 150000,
+               "tile_setters": 145000, "concrete_workers": 160000, "window_installers": 130000, "drywall_installers": 135000,
+               "pest_control_technicians": 120000, "fence_installers": 125000, "pool_technicians": 140000,
+               "septic_system_installers": 150000, "insulation_installers": 135000, "flooring_installers": 145000,
+               "general_contractors": 200000, "welders": 155000, "auto_mechanics": 150000, "siding_installers": 140000,
+               "gutter_installers": 130000, "deck_builders": 155000, "cabinet_makers": 160000, "garage_door_technicians": 135000,
+               "solar_panel_installers": 160000, "tree_surgeons": 140000, "home_inspectors": 150000},
+    "Melbourne": {"postcodes": range(3000, 4000), "electricians": 150000, "plumbers": 200000, "HVAC": 180000, 
+                  "carpenters": 160000, "roofers": 170000, "painters": 130000, "landscapers": 120000, "masons": 140000,
+                  "tile_setters": 135000, "concrete_workers": 150000, "window_installers": 120000, "drywall_installers": 125000,
+                  "pest_control_technicians": 110000, "fence_installers": 115000, "pool_technicians": 130000,
+                  "septic_system_installers": 140000, "insulation_installers": 125000, "flooring_installers": 135000,
+                  "general_contractors": 190000, "welders": 145000, "auto_mechanics": 140000, "siding_installers": 130000,
+                  "gutter_installers": 120000, "deck_builders": 145000, "cabinet_makers": 150000, "garage_door_technicians": 125000,
+                  "solar_panel_installers": 150000, "tree_surgeons": 130000, "home_inspectors": 140000},
+    "Brisbane": {"postcodes": range(4000, 5000), "electricians": 155000, "plumbers": 205000, "HVAC": 185000, 
+                 "carpenters": 165000, "roofers": 175000, "painters": 135000, "landscapers": 125000, "masons": 145000,
+                 "tile_setters": 140000, "concrete_workers": 155000, "window_installers": 125000, "drywall_installers": 130000,
+                 "pest_control_technicians": 115000, "fence_installers": 120000, "pool_technicians": 135000,
+                 "septic_system_installers": 145000, "insulation_installers": 130000, "flooring_installers": 140000,
+                 "general_contractors": 195000, "welders": 150000, "auto_mechanics": 145000, "siding_installers": 135000,
+                 "gutter_installers": 125000, "deck_builders": 150000, "cabinet_makers": 155000, "garage_door_technicians": 130000,
+                 "solar_panel_installers": 155000, "tree_surgeons": 135000, "home_inspectors": 145000},
+    "Adelaide": {"postcodes": range(5000, 6000), "electricians": 140000, "plumbers": 190000, "HVAC": 170000, 
+                 "carpenters": 150000, "roofers": 160000, "painters": 120000, "landscapers": 110000, "masons": 130000,
+                 "tile_setters": 125000, "concrete_workers": 140000, "window_installers": 110000, "drywall_installers": 115000,
+                 "pest_control_technicians": 100000, "fence_installers": 105000, "pool_technicians": 120000,
+                 "septic_system_installers": 130000, "insulation_installers": 115000, "flooring_installers": 125000,
+                 "general_contractors": 180000, "welders": 135000, "auto_mechanics": 130000, "siding_installers": 120000,
+                 "gutter_installers": 110000, "deck_builders": 135000, "cabinet_makers": 140000, "garage_door_technicians": 115000,
+                 "solar_panel_installers": 140000, "tree_surgeons": 120000, "home_inspectors": 130000},
+    "Perth": {"postcodes": range(6000, 7000), "electricians": 145000, "plumbers": 195000, "HVAC": 175000, 
+              "carpenters": 155000, "roofers": 165000, "painters": 125000, "landscapers": 115000, "masons": 135000,
+              "tile_setters": 130000, "concrete_workers": 145000, "window_installers": 115000, "drywall_installers": 120000,
+              "pest_control_technicians": 105000, "fence_installers": 110000, "pool_technicians": 125000,
+              "septic_system_installers": 135000, "insulation_installers": 120000, "flooring_installers": 130000,
+              "general_contractors": 185000, "welders": 140000, "auto_mechanics": 135000, "siding_installers": 125000,
+              "gutter_installers": 115000, "deck_builders": 140000, "cabinet_makers": 145000, "garage_door_technicians": 120000,
+              "solar_panel_installers": 145000, "tree_surgeons": 125000, "home_inspectors": 135000}
+}
+
+impact_factors = {
+    "electricians": 0.30,
+    "plumbers": 0.35,
+    "HVAC": 0.32,
+    "carpenters": 0.28,
+    "roofers": 0.30,
+    "painters": 0.25,
+    "landscapers": 0.22,
+    "masons": 0.27,
+    "tile_setters": 0.26,
+    "concrete_workers": 0.29,
+    "window_installers": 0.23,
+    "drywall_installers": 0.24,
+    "pest_control_technicians": 0.20,
+    "fence_installers": 0.21,
+    "pool_technicians": 0.25,
+    "septic_system_installers": 0.27,
+    "insulation_installers": 0.24,
+    "flooring_installers": 0.26,
+    "general_contractors": 0.33,
+    "welders": 0.28,
+    "auto_mechanics": 0.26,
+    "siding_installers": 0.24,
+    "gutter_installers": 0.22,
+    "deck_builders": 0.27,
+    "cabinet_makers": 0.28,
+    "garage_door_technicians": 0.24,
+    "solar_panel_installers": 0.30,
+    "tree_surgeons": 0.25,
+    "home_inspectors": 0.28
+}
+
+# Create a dictionary to store the data
+data = {}
+
+# Populate the dictionary with values for each region
+for region, values in regions.items():
+    for postcode in values["postcodes"]:
+        postcode_str = str(postcode).zfill(4)
+        data[postcode_str] = {}
+        for trade in impact_factors.keys():
+            average_revenue = values[trade]
+            impact = impact_factors[trade]
+            lost_revenue = round(average_revenue * impact, 2)
+            data[postcode_str][trade] = {
+                "average_revenue": average_revenue,
+                "impact": impact,
+                "lost_revenue": lost_revenue
+            }
+
+#
