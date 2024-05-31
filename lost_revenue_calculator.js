@@ -18,3 +18,15 @@ async function calculateLostRevenue() {
         document.getElementById('result').innerText = 'Error calculating lost revenue';
     }
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+
+    document.getElementById('revenueForm').addEventListener('submit', function(event) {
+
+        event.preventDefault();
+
+        calculateLostRevenue();
+
+    });
+
+});
