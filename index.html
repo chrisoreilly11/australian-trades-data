@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost Revenue Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="calculator-container">
+        <h1>Are You Losing Revenue?</h1>
+        <p class="subtitle">Find out how much revenue you could be losing without a professional website.</p>
+        <form id="revenueForm">
+            <div class="form-group">
+                <label for="postalCode">Postal Code:</label>
+                <input type="text" id="postalCode" name="postalCode" required>
+            </div>
+            <div class="form-group">
+                <label for="trade">Trade:</label>
+                <select id="trade" name="trade" required>
+                    <option value="electricians">Electricians</option>
+                    <option value="plumbers">Plumbers</option>
+                    <option value="HVAC">HVAC Technicians</option>
+                    <option value="carpenters">Carpenters</option>
+                    <option value="roofers">Roofers</option>
+                    <option value="painters">Painters</option>
+                    <option value="landscapers">Landscapers</option>
+                    <option value="masons">Masons</option>
+                    <option value="tile_setters">Tile Setters</option>
+                    <option value="concrete_workers">Concrete Workers</option>
+                    <option value="window_installers">Window Installers</option>
+                    <option value="drywall_installers">Drywall Installers</option>
+                    <option value="pest_control_technicians">Pest Control Technicians</option>
+                    <option value="fence_installers">Fence Installers</option>
+                    <option value="pool_technicians">Pool Technicians</option>
+                    <option value="septic_system_installers">Septic System Installers</option>
+                    <option value="insulation_installers">Insulation Installers</option>
+                    <option value="flooring_installers">Flooring Installers</option>
+                    <option value="general_contractors">General Contractors</option>
+                    <option value="welders">Welders</option>
+                    <option value="auto_mechanics">Auto Mechanics</option>
+                    <option value="siding_installers">Siding Installers</option>
+                    <option value="gutter_installers">Gutter Installers</option>
+                    <option value="deck_builders">Deck Builders</option>
+                    <option value="cabinet_makers">Cabinet Makers</option>
+                    <option value="garage_door_technicians">Garage Door Technicians</option>
+                    <option value="solar_panel_installers">Solar Panel Installers</option>
+                    <option value="tree_surgeons">Tree Surgeons</option>
+                    <option value="home_inspectors">Home Inspectors</option>
+                </select>
+            </div>
+            <button type="submit">Calculate</button>
+        </form>
+        <div id="result"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
