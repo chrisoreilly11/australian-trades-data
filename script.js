@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <p>Investing in a quality website can transform your business. Don’t leave money on the table – let us help you build a professional website that drives growth and maximizes your revenue.</p>
                     <div class="pricing-section">
                         <div class="pricing-tier">
-                            <h3>Suggested Market Price</h3>
+                            <h3>Market Price</h3>
                             <p><strong style="color: red;">$${formattedFairPrice}</strong></p>
                             <p><em>Based on industry averages for professional websites.</em></p>
                         </div>
