@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <div class="pricing-tier recommended">
                             <h3>Our Recommended Price</h3>
                             <p><strong>$${formattedSuggestedPrice}</strong></p>
-                            <p><em>Get the same quality website for much less!</em></p>
+                            <p><em>We provide high-quality websites at a more affordable rate, ensuring you receive exceptional value without compromising on quality.</em></p>
                         </div>
                     </div>
                     <div class="footnote">* Data based on industry average revenue impacts from ${new Date().getFullYear()}.</div>
